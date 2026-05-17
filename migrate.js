@@ -18,12 +18,9 @@ import DbMysql from "./clients/db.mysql.js";
   create table if not exists tasks
   (
       id bigint primary key auto_increment,
-      userId VARCHAR(36) NOT NULL,
       title VARCHAR(255) NOT NULL,
       description TEXT,
-      completed BOOLEAN DEFAULT FALSE,
-      taskDate DATE NOT NULL,
-      createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+      taskDate DATE NOT NULL
   );
   `);
   console.log('-> Task table successfully created');

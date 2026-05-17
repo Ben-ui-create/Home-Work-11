@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {display : flex; flex-direction: column; justify-content: center; align-items: center; padding: 100px;}
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; }
+        .error-msg { color: red; font-size: 0.8em; display: block; margin-top: 5px; }
+        .general-error { color: red; margin-bottom: 15px; font-weight: bold; }
+    </style>
+</head>
+<body>
+<h1>Login</h1>
+
+<!-- Container for generic login errors (e.g., "Invalid credentials") -->
+<div id="generalError" class="general-error"></div>
+
+<form id="loginForm">
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <span class="error-msg" data-error="email"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <span class="error-msg" data-error="password"></span>
+    </div>
+
+    <button type="submit">Login</button>
+    <a href="/users/register">NEED ACCOUNT ?</a>
+</form>
+
+<script src="/js/login.js"></script>
+</body>
+</html>

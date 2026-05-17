@@ -15,7 +15,7 @@ export async function findById(id) {
   }
 }
 
-export async function getTasksList(page = 1, limit = 20) {
+export async function getTaskList(page = 1, limit = 20) {
   try {
     const [[{count}]] = await DbMysql.query(
       `select count(*) as count from tasks;`,
@@ -52,11 +52,11 @@ export async function create({title, description, taskDate}) {
   }
 }
 
-export async function update(id, {title, description, taskDate}, returnData = false) {
+export async function update ({title, description, taskDate, id}, returnData = false) {
   try {
     const result = await DbMysql.query(
       `update tasks set title = ?, description = ?, taskDate = ? where id = ?`,
-      [title, description, taskDate]
+      [title, description, taskDate, id]
     );
 
     const affectedRows = _.get(result, '0.affectedRows', null);
@@ -85,7 +85,7 @@ export async function deleteTask(id) {
 }
 
 export default {
-  findById,
+  getTaskList,
   create,
   update,
   deleteTask,
