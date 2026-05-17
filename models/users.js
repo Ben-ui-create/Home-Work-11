@@ -76,7 +76,7 @@ export async function create({name, email, age, password}) {
     const result = await DbMysql.query(
       `insert into users (name, age, email, password)
       values(?, ?, ?, ?);`,
-      [name, email, age, password]
+      [name, age, email, password]
     );
 
     const id = _.get(result, '0.insertId', null);

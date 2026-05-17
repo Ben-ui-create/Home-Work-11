@@ -48,8 +48,8 @@ export default {
 
       const user = await Users.create({
         name,
-        email,
         age,
+        email,
         password: Users.hashPassword(password),
       });
 

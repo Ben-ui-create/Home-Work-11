@@ -8,18 +8,18 @@ export default {
 
   register: Joi.object({
     email: Joi.string().email().required(),
-    age: Joi.number().integer().min(10).max(200).required(),
+    age: Joi.number().min(10).max(200).required(),
     name: Joi.string().alphanum().required(),
     password: Joi.string().min(4).max(32).required(),
   }),
 
   update: Joi.object({
     name: Joi.string().alphanum().required(),
-    age: Joi.number().integer().min(10).max(200).required(),
+    age: Joi.number().min(10).max(200).required(),
   }),
 
   getUsersList: Joi.object({
-    page: Joi.number().integer().min(1).max(1000).default(1),
-    limit: Joi.number().integer().min(5).max(200).default(20),
+    page: Joi.number().min(1).max(1000).default(1),
+    limit: Joi.number().min(5).max(200).default(20),
   }),
 }
